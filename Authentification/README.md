@@ -5,7 +5,6 @@ Auth JBoss Application
 PoC about Authentification into JBoss
 
 
-
 TODO
 ====
 
