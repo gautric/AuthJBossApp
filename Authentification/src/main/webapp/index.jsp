@@ -1,0 +1,1 @@
+<% response.sendRedirect("jsp/display.jsp"); %>

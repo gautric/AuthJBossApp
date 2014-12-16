@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns="http://java.sun.com/xml/ns/javaee"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
+	id="AuthWebApp" version="2.5">
+
+	<display-name>AuthWebApp</display-name>
+
+	<welcome-file-list>
+		<welcome-file>/jsp/display.jsp</welcome-file>
+	</welcome-file-list>
+
+	<servlet>
+		<servlet-name>DisplayServletName</servlet-name>
+		<servlet-class>net.a.g.webapp.auth.DisplayServlet</servlet-class>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>DisplayServletName</servlet-name>
+		<url-pattern>/display</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>LogOutServletName</servlet-name>
+		<servlet-class>net.a.g.webapp.auth.LogOutServlet</servlet-class>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>LogOutServletName</servlet-name>
+		<url-pattern>/logout</url-pattern>
+	</servlet-mapping>
+
+	<security-constraint>
+		<display-name>Restricted Access</display-name>
+		<web-resource-collection>
+			<web-resource-name>Restricted Access to the entire application</web-resource-name>
+			<url-pattern>/*</url-pattern>
+			<http-method>GET</http-method>
+			<http-method>POST</http-method>
+			<http-method>PUT</http-method>
+			<http-method>DELETE</http-method>
+			<http-method>HEAD</http-method>
+			<http-method>OPTIONS</http-method>
+			<http-method>TRACE</http-method>
+		</web-resource-collection>
+		<auth-constraint>
+			<role-name>Role1</role-name>
+		</auth-constraint>
+		<user-data-constraint>
+			<transport-guarantee>NONE</transport-guarantee>
+		</user-data-constraint>
+	</security-constraint>
+
+	<login-config>
+		<auth-method>FORM</auth-method>
+		<form-login-config>
+			<form-login-page>/jsp/login.jsp</form-login-page>
+			<form-error-page>/jsp/logerr.jsp</form-error-page>
+		</form-login-config>
+	</login-config>
+
+	<security-role>
+		<description>Everybody</description>
+		<role-name>Role1</role-name>
+	</security-role>
+
+</web-app>
+ 
