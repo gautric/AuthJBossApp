@@ -8,7 +8,15 @@
   <packaging>war</packaging>
 
   <name>Authentification JBoss Application</name>
-
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>org.jboss.as.plugins</groupId>
+        <artifactId>jboss-as-maven-plugin</artifactId>
+        <version>7.6.Final</version>
+      </plugin>
+    </plugins>
+  </build>
   <dependencies>
     <dependency>
       <groupId>javax.servlet</groupId>
